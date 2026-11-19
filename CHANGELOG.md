@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ChrisPJohnstone/git-open/compare/v1.1.0...v1.2.0) (2026-11-19)
+
+
+### Features
+
+* added option to specify path ([#5](https://github.com/ChrisPJohnstone/git-open/issues/5)) ([9d2af9a](https://github.com/ChrisPJohnstone/git-open/commit/9d2af9a00c409d160028145258f6e3a7fb6a0ec7))
+
 ## [1.1.0](https://github.com/ChrisPJohnstone/git-open/compare/v1.0.0...v1.1.0) (2026-11-19)
 
 
