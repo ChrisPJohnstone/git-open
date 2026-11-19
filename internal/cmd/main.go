@@ -11,6 +11,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/ChrisPJohnstone/git-open/internal/git"
+	"github.com/ChrisPJohnstone/git-open/internal/parser"
 )
 
 func openURL(url string) error {
@@ -38,7 +39,7 @@ func main(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	webURL, err := parseWebURL(remoteURL)
+	webURL, err := parser.ParseWebURL(remoteURL)
 	if err != nil {
 		return err
 	}
