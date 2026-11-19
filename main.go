@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/ChrisPJohnstone/git-open/internal/cmd"
 
 func main() {
-	fmt.Printf("Hello World!\n")
+	cmd.Execute()
 }
