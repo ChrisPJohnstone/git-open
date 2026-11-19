@@ -1,19 +1,14 @@
 # Go Template
 
-A template repo for go projects.
+CLI Utility for opening git repo's
 
-Includes
+## Usage
 
-- Github settings [probot/settings](https://probot.github.io/apps/settings/) automatically match [.github/settings.yml](.github/settings.yml)
-- Workflows for testing & linting go code
-- [Release Please](https://github.com/googleapis/release-please) workflow for versioning & tagging.
-- [`CONTRIBUTING.md`](./CONTRIBUTING.md) with development instructions
-- [`Makefile`](./Makefile) handles
-  - Compilation & clean up
-  - Install & uninstall
-  - Running linter locally using a container engine
-
-## Pre-Requisite
-
-- Requires [probot/settings](https://probot.github.io/apps/settings/) app installed on your account
-- Requires a PAT token in repo secrets for [Release Please](https://github.com/googleapis/release-please)
+- Install with go
+  ```sh
+  go install github.com/ChrisPJohnstone/git-open@latest
+  ```
+- Get help using the tool
+  ```sh
+  git open -h
+  ```

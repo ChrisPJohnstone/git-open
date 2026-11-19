@@ -1,4 +1,4 @@
-BINARY           ?= bin
+BINARY           ?= git-open
 CONTAINER_ENGINE ?= podman
 GOPATH           := $(shell go env GOPATH)
 GOBIN            := $(shell go env GOBIN)
