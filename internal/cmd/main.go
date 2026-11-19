@@ -39,7 +39,7 @@ func main(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	webURL, err := parser.ParseWebURL(gitCfg.RemoteURL, gitCfg.Branch)
+	webURL, err := parser.ParseWebURL(gitCfg)
 	if err != nil {
 		return err
 	}

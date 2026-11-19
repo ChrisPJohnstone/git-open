@@ -9,6 +9,7 @@ import (
 type GitConfig struct {
 	repo      *git.Repository
 	Branch    string
+	Hash      string
 	RemoteURL string
 }
 
@@ -20,10 +21,13 @@ func NewConfig() (*GitConfig, error) {
 	if err != nil {
 		return nil, err
 	}
-	cfg.Branch, err = branch(cfg.repo)
+	slog.Debug("Getting git HEAD")
+	head, err := cfg.repo.Head()
 	if err != nil {
 		return nil, err
 	}
+	cfg.Branch = head.Name().Short()
+	cfg.Hash = head.Hash().String()
 	cfg.RemoteURL, err = remoteURL(cfg.repo)
 	if err != nil {
 		return nil, err

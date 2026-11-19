@@ -19,15 +19,6 @@ func repo() (*git.Repository, error) {
 	return repo, nil
 }
 
-func branch(repo *git.Repository) (string, error) {
-	slog.Debug("Getting git HEAD")
-	head, err := repo.Head()
-	if err != nil {
-		return "", err
-	}
-	return head.Name().Short(), nil
-}
-
 func remoteURL(repo *git.Repository) (string, error) {
 	slog.Debug("Getting git remote")
 	remotes, err := repo.Remotes()
