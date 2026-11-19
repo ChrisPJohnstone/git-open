@@ -10,6 +10,7 @@ import (
 var rootCmd *cobra.Command = &cobra.Command{
 	Use:               cmdName,
 	Short:             cmdShortHelp,
+	Args:              cobra.MaximumNArgs(1),
 	PersistentPreRunE: setupLogging,
 	RunE:              main,
 }

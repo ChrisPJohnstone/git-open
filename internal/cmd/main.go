@@ -35,11 +35,11 @@ func openURL(url string) error {
 }
 
 func main(cmd *cobra.Command, args []string) error {
-	remoteURL, err := git.GitRemoteURL()
+	gitCfg, err := git.NewConfig()
 	if err != nil {
 		return err
 	}
-	webURL, err := parser.ParseWebURL(remoteURL)
+	webURL, err := parser.ParseWebURL(gitCfg.RemoteURL, gitCfg.Branch)
 	if err != nil {
 		return err
 	}
