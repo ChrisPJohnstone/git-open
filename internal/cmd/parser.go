@@ -22,6 +22,11 @@ func parseBitbucketURL(remote string) (string, error) {
 		"Attempting to parse Bitbucket URL from '%s'",
 		remote,
 	))
+	patternSSH := regexp.MustCompile(`^git@.*bitbucket.org:([^/]*)/([^\.]*).*$`)
+	parts := patternSSH.FindStringSubmatch(remote)
+	if len(parts) == 3 {
+		return fmt.Sprintf("https://bitbucket.org/%s/%s", parts[1], parts[2]), nil
+	}
 	return "", fmt.Errorf("Unable to parse bitbucket URL for '%s'", remote)
 }
 
