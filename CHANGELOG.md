@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ChrisPJohnstone/git-open/compare/v1.0.0...v1.1.0) (2026-11-19)
+
+
+### Features
+
+* added branch handling ([#3](https://github.com/ChrisPJohnstone/git-open/issues/3)) ([48721db](https://github.com/ChrisPJohnstone/git-open/commit/48721db111196103f41eaef40a672f87f634382b))
+
 ## 1.0.0 (2026-11-19)
 
 
