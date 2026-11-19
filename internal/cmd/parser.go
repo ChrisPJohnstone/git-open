@@ -2,11 +2,13 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 	"regexp"
 	"strings"
 )
 
 func parseGithubURL(remote string) (string, error) {
+	slog.Debug(fmt.Sprintf("Attempting to parse Github URL from '%s'", remote))
 	patternSSH := regexp.MustCompile(`^git@.*github.com:([^/]*)/([^\.]*).*$`)
 	parts := patternSSH.FindStringSubmatch(remote)
 	if len(parts) == 3 {
@@ -16,10 +18,15 @@ func parseGithubURL(remote string) (string, error) {
 }
 
 func parseBitbucketURL(remote string) (string, error) {
+	slog.Debug(fmt.Sprintf(
+		"Attempting to parse Bitbucket URL from '%s'",
+		remote,
+	))
 	return "", fmt.Errorf("Unable to parse bitbucket URL for '%s'", remote)
 }
 
 func parseWebURL(remote string) (string, error) {
+	slog.Debug(fmt.Sprintf("Attempting to parse web URL from '%s'", remote))
 	if strings.Contains(remote, "github") {
 		return parseGithubURL(remote)
 	} else if strings.Contains(remote, "bitbucket") {
