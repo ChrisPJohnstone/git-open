@@ -21,11 +21,14 @@ func githubBaseURL(remote string) (string, error) {
 	return "", fmt.Errorf("unable to parse %s url for '%s'", domain, remote)
 }
 
-func githubURL(remote string, branch string) (string, error) {
+func githubURL(remote string, branch string, path string) (string, error) {
 	url, err := githubBaseURL(remote)
 	if err != nil {
 		return "", err
 	}
 	url = fmt.Sprintf("%s/tree/%s", url, branch)
+	if path != "" {
+		url = fmt.Sprintf("%s/%s", url, path)
+	}
 	return url, nil
 }
