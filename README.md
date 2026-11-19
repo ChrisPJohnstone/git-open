@@ -12,7 +12,14 @@ CLI Utility for opening git repo's
   ```sh
   git open -h
   ```
-- Run the command without args to open the repo you are currently inside
+- Run the command without args to open the repo you are currently inside on it's current branch
   ```sh
   git open
   ```
+- Optionally you can provide a path with the first positional argument
+  ```sh
+  git open README.md
+  ```
+
+  - If specified will open the directory / file in question
+  - By default will open at repo root

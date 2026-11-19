@@ -21,11 +21,14 @@ func bitbucketBaseURL(remote string) (string, error) {
 	return "", fmt.Errorf("unable to parse %s url for '%s'", domain, remote)
 }
 
-func bitbucketURL(remote string, hash string) (string, error) {
+func bitbucketURL(remote string, hash string, path string) (string, error) {
 	url, err := bitbucketBaseURL(remote)
 	if err != nil {
 		return "", err
 	}
 	url = fmt.Sprintf("%s/src/%s", url, hash)
+	if path != "" {
+		url = fmt.Sprintf("%s/%s", url, path)
+	}
 	return url, nil
 }

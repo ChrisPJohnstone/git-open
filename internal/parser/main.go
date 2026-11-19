@@ -12,15 +12,15 @@ func url(domain string, extension string, user string, repo string) string {
 	return fmt.Sprintf("https://%s.%s/%s/%s", domain, extension, user, repo)
 }
 
-func ParseWebURL(gitCfg *git.GitConfig) (string, error) {
+func ParseWebURL(gitCfg *git.GitConfig, path string) (string, error) {
 	slog.Debug(fmt.Sprintf(
 		"Attempting to parse web URL from '%s'",
 		gitCfg.RemoteURL,
 	))
 	if strings.Contains(gitCfg.RemoteURL, "github") {
-		return githubURL(gitCfg.RemoteURL, gitCfg.Branch)
+		return githubURL(gitCfg.RemoteURL, gitCfg.Branch, path)
 	} else if strings.Contains(gitCfg.RemoteURL, "bitbucket") {
-		return bitbucketURL(gitCfg.RemoteURL, gitCfg.Hash)
+		return bitbucketURL(gitCfg.RemoteURL, gitCfg.Hash, path)
 	}
 	return "", fmt.Errorf(
 		"unable to determine web url for '%s'",
