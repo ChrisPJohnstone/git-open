@@ -12,3 +12,7 @@ CLI Utility for opening git repo's
   ```sh
   git open -h
   ```
+- Run the command without args to open the repo you are currently inside
+  ```sh
+  git open
+  ```
