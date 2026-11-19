@@ -23,7 +23,7 @@ func parseGithubURL(remote string) (string, error) {
 	if len(parts) == 4 {
 		return url(domain, parts[1], parts[2], parts[3]), nil
 	}
-	return "", fmt.Errorf("Unable to parse %s URL for '%s'", domain, remote)
+	return "", fmt.Errorf("unable to parse %s url for '%s'", domain, remote)
 }
 
 func parseBitbucketURL(remote string) (string, error) {
@@ -38,7 +38,7 @@ func parseBitbucketURL(remote string) (string, error) {
 	if len(parts) == 4 {
 		return url(domain, parts[1], parts[2], parts[3]), nil
 	}
-	return "", fmt.Errorf("Unable to parse %s URL for '%s'", domain, remote)
+	return "", fmt.Errorf("unable to parse %s url for '%s'", domain, remote)
 }
 
 func ParseWebURL(remote string) (string, error) {
@@ -48,5 +48,5 @@ func ParseWebURL(remote string) (string, error) {
 	} else if strings.Contains(remote, "bitbucket") {
 		return parseBitbucketURL(remote)
 	}
-	return "", fmt.Errorf("Unable to determine web URL for '%s'", remote)
+	return "", fmt.Errorf("unable to determine web url for '%s'", remote)
 }

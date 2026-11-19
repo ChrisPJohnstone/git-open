@@ -33,19 +33,19 @@ func GitRemoteURL() (string, error) {
 	switch len(remotes) {
 	case 1:
 	case 0:
-		return "", errors.New("There are no remotes for this repo")
+		return "", errors.New("there are no remotes for this repo")
 	default:
-		return "", errors.New("Repo has multiple remotes")
+		return "", errors.New("repo has multiple remotes")
 	}
 	slog.Debug("Getting git remote URL")
 	remoteConfig := remotes[0].Config()
 	switch len(remoteConfig.URLs) {
 	case 1:
 	case 0:
-		return "", fmt.Errorf("Remote '%s' has no URLs", remoteConfig.Name)
+		return "", fmt.Errorf("remote '%s' has no urls", remoteConfig.Name)
 	default:
 		return "", fmt.Errorf(
-			"Remote '%s' has multiple URLs",
+			"remote '%s' has multiple urls",
 			remoteConfig.Name,
 		)
 	}
