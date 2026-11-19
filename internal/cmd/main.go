@@ -9,10 +9,14 @@ import (
 )
 
 func main(cmd *cobra.Command, args []string) error {
-	remote, err := git.GitRemoteURL()
+	remoteURL, err := git.GitRemoteURL()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Remote: %s\n", remote)
+	webURL, err := parseWebURL(remoteURL)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("URL: %s\n", webURL)
 	return nil
 }
